@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Barbearia Kadosh · Governador Valadares</title>
+<meta name="description" content="Barbearia Kadosh — Centro de Governador Valadares. Agende seu corte e barba online: escolha o serviço, o barbeiro e o horário.">
+<meta name="theme-color" content="#0c0c0c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0c;--bg2:#141414;--bg3:#1d1d1d;--line:rgba(255,255,255,.1);--txt:#f2efe9;--mut:#a29d94;--gold:#c9a86a;--gold2:#a88a4f;--ok:#3ecf7a;
+--fd:'Cinzel',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:var(--bg);scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--txt);font:400 16px/1.6 var(--fb);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+::selection{background:var(--gold);color:#000}
+.wrap{width:min(1140px,100% - 32px);margin-inline:auto}
+section{scroll-margin-top:70px}
+h1,h2,h3{font-family:var(--fd);font-weight:600;line-height:1.05;letter-spacing:.02em}
+h2{font-size:clamp(1.9rem,4.6vw,3rem)}
+h2 em{font-style:normal;color:var(--gold)}
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.eye::before{content:"";width:24px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:4px;background:var(--gold);color:#0c0c0c;font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;border:0;cursor:pointer;transition:background .2s,transform .15s}
+.btn:hover{background:#d8b97c}.btn:active{transform:scale(.97)}
+.btn.line{background:transparent;color:var(--txt);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.line:hover{box-shadow:inset 0 0 0 1.5px var(--gold)}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.rv.in{opacity:1;transform:none}
+.demo{font-size:.72rem;text-align:center;padding:6px 12px;color:var(--mut);background:#060606;border-bottom:1px solid var(--line)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(12,12,12,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo b{font-family:var(--fd);font-size:1.3rem;letter-spacing:.14em}
+.logo small{display:block;font-size:.58rem;letter-spacing:.3em;color:var(--mut);text-transform:uppercase}
+.logo svg{width:34px;height:34px}
+.nav-r{display:flex;align-items:center;gap:12px}
+.st{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--mut);white-space:nowrap}
+.st i{width:8px;height:8px;border-radius:50%;background:#555}
+.st.open{color:var(--txt)}.st.open i{background:var(--ok);box-shadow:0 0 0 4px rgba(62,207,122,.18)}
+.nav .btn{padding:10px 16px;font-size:.78rem}
+@media(max-width:600px){.st{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,12,.96) 0%,rgba(12,12,12,.75) 50%,rgba(12,12,12,.2) 100%)}
+.hero-in{position:relative;z-index:2;padding:clamp(70px,12vw,140px) 0 clamp(60px,9vw,110px);max-width:640px}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);margin:16px 0}
+.hero h1 span{display:block;color:var(--gold)}
+.hero p{color:#cfcac1;font-size:1.08rem;max-width:42ch}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.facts b{display:block;font-family:var(--fd);font-size:1.5rem}
+.facts small{color:var(--mut);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:700px){.hero::after{background:linear-gradient(0deg,rgba(12,12,12,.98) 30%,rgba(12,12,12,.7) 70%,rgba(12,12,12,.45))}.hero-in{padding-top:170px}}
+
+/* agendar */
+.sec{padding:clamp(64px,9vw,110px) 0}
+.book{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.9fr);gap:22px;align-items:start;margin-top:30px}
+.book>*{min-width:0}
+.panel{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,28px)}
+.step{padding:20px 0;border-top:1px solid var(--line)}
+.step:first-child{border-top:0;padding-top:0}
+.step h3{font-family:var(--fb);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.step h3 b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--bg3);color:var(--gold);font-size:.75rem;letter-spacing:0}
+.step.done h3 b{background:var(--gold);color:#0c0c0c}
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.opt>span{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 14px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg3);cursor:pointer;transition:all .18s;height:100%}
+.opt span b{font-weight:700}
+.opt span small{display:block;color:var(--mut);font-size:.76rem;font-weight:500}
+.opt span em{font-style:normal;font-weight:800;color:var(--gold);white-space:nowrap}
+.opt input:checked+span{border-color:var(--gold);background:rgba(201,168,106,.1)}
+.opt input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.pros{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pros .opt>span{flex-direction:column;justify-content:center;text-align:center;gap:6px;padding:14px 8px}
+.pros .av{width:46px;height:46px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:var(--fd);color:var(--gold);font-size:1.1rem;border:1px solid var(--line)}
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;overscroll-behavior-x:contain}
+.days::-webkit-scrollbar{display:none}
+.days .opt{flex:0 0 auto}
+.days .opt>span{flex-direction:column;gap:0;padding:10px 14px;text-align:center;min-width:64px}
+.days .opt span small{text-transform:uppercase;letter-spacing:.08em;font-size:.66rem}
+.days .opt span b{font-family:var(--fd);font-size:1.3rem}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px}
+.slots .opt>span{justify-content:center;padding:11px 6px;font-weight:700}
+.slots .opt input:disabled+span{opacity:.28;text-decoration:line-through;cursor:not-allowed}
+.hint{color:var(--mut);font-size:.86rem}
+.slots .hint{grid-column:1/-1}
+.fld{display:grid;gap:6px;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.fld input{width:100%;border:1.5px solid var(--line);border-radius:8px;padding:12px;background:var(--bg3);font-size:1rem;letter-spacing:0;text-transform:none;font-weight:500;color:var(--txt);outline:none}
+.fld input:focus{border-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sum{position:sticky;top:84px}
+.sum h3{font-size:1.4rem;margin-bottom:12px}
+.sum ul{list-style:none;display:grid;gap:8px}
+.sum li{display:flex;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px dashed var(--line);font-size:.92rem}
+.sum li span:first-child{color:var(--mut)}
+.sum li span:last-child{font-weight:700;text-align:right}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0;font-weight:800}
+.sum .tot b{font-family:var(--fd);font-size:1.7rem;color:var(--gold)}
+.sum .btn{width:100%}
+.err{color:#ff9b8a;font-weight:700;font-size:.86rem;min-height:1.2em;margin-top:10px}
+.small{font-size:.76rem;color:var(--mut);margin-top:10px}
+.ok{text-align:center}
+.ok .ic{width:64px;height:64px;border-radius:50%;background:var(--ok);color:#06210f;display:grid;place-items:center;font-size:1.9rem;margin:0 auto 12px;animation:pop .5s var(--ease)}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.ok h3{font-size:1.6rem}
+.ok .code{display:inline-block;margin:8px 0 14px;padding:5px 12px;border-radius:4px;background:var(--gold);color:#0c0c0c;font-weight:800;letter-spacing:.14em}
+.ok .wa{margin-top:14px;text-align:left;background:#0b141a;border-radius:10px;padding:12px;font-size:.84rem}
+.ok .wa div{background:#005c4b;border-radius:8px;padding:8px 10px;white-space:pre-wrap;color:#e9edef}
+.ok .wa small{display:block;color:#8696a0;font-size:.7rem;margin-bottom:6px}
+.ok .acts{display:grid;gap:8px;margin-top:14px}
+@media(max-width:900px){.book{grid-template-columns:minmax(0,1fr)}.sum{position:static}}
+@media(max-width:520px){.svc{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+
+/* serviços / preços */
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-top:26px}
+.mi{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.mi b{font-weight:700}.mi small{display:block;color:var(--mut);font-size:.8rem}
+.mi i{flex:1;border-bottom:1px dotted rgba(255,255,255,.18);transform:translateY(-4px)}
+.mi em{font-style:normal;font-family:var(--fd);color:var(--gold);font-size:1.15rem}
+@media(max-width:720px){.menu{grid-template-columns:1fr}}
+
+/* galeria */
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:10px;margin-top:26px}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:6px;filter:grayscale(.25)}
+.gal img:first-child{grid-row:1/3}
+@media(max-width:720px){.gal{grid-template-columns:1fr 1fr;grid-template-rows:180px 140px 140px}.gal img:first-child{grid-column:1/3;grid-row:auto}}
+
+/* dono */
+.own{background:var(--bg2);border-block:1px solid var(--line)}
+.own-in{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:center}
+.own ul{list-style:none;display:grid;gap:14px;margin-top:20px}
+.own li{display:flex;gap:12px}
+.own li span{flex:0 0 34px;height:34px;border-radius:50%;background:var(--bg3);display:grid;place-items:center}
+.own li b{display:block}.own li p{color:var(--mut);font-size:.9rem}
+.agenda{background:var(--bg);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.ag-h{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:700;font-size:.9rem}
+.ag-h small{color:var(--mut);font-weight:500}
+.ag-l{list-style:none;max-height:340px;overflow:auto}
+.ag-l li{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line);font-size:.88rem}
+.ag-l li time{font-family:var(--fd);color:var(--gold)}
+.ag-l li small{display:block;color:var(--mut);font-size:.76rem}
+.ag-l li .tg{font-size:.68rem;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:99px;background:var(--bg3);color:var(--mut);text-transform:uppercase}
+.ag-l li.new{background:rgba(201,168,106,.1)}
+.ag-l li.new .tg{background:var(--gold);color:#0c0c0c}
+.ag-n{padding:10px 14px;font-size:.76rem;color:var(--mut)}
+@media(max-width:860px){.own-in{grid-template-columns:1fr}}
+
+/* avaliações */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.revs blockquote{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--bg2)}
+.revs p{font-size:.98rem}
+.revs cite{display:block;margin-top:12px;font-style:normal;color:var(--mut);font-size:.82rem}
+.score{display:flex;align-items:center;gap:14px;margin-top:10px}
+.score b{font-family:var(--fd);font-size:3rem;color:var(--gold);line-height:1}
+.score span{color:var(--mut)}
+@media(max-width:820px){.revs{grid-template-columns:1fr}}
+
+/* visite */
+.vis{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
+.hrs{list-style:none;margin-top:18px}
+.hrs li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.hrs li span:last-child{color:var(--mut);font-variant-numeric:tabular-nums}
+.hrs li.today{font-weight:700}.hrs li.today span:last-child{color:var(--gold)}
+.map{border-radius:10px;overflow:hidden;min-height:320px;border:1px solid var(--line);background:var(--bg3)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;filter:grayscale(1) invert(.9) contrast(.9)}
+@media(max-width:820px){.vis{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:30px 0 110px;margin-top:60px;color:var(--mut);font-size:.84rem}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="demo">Site de demonstração · nenhum horário é marcado de verdade</div>
+<header><div class="wrap nav">
+ <a href="#topo" class="logo" aria-label="Barbearia Kadosh"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x=".75" y=".75" width="38.5" height="38.5" rx="4" fill="none" stroke="#c9a86a" stroke-width="1.5"/><path d="M14 9v22M14 20l11-11M17.5 17 26 31" stroke="#f2efe9" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg><span><b>KADOSH</b><small>Barbearia · GV</small></span></a>
+ <div class="nav-r"><span class="st" id="st"><i></i><b>—</b></span><a class="btn" href="#agendar">Agendar</a></div>
+</div></header>
+
+<main id="topo">
+<section class="hero">
+ <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&h=1100&q=70" alt="Barbeiro fazendo corte">
+ <div class="wrap"><div class="hero-in">
+  <span class="eye">Centro · Governador Valadares</span>
+  <h1>Seu corte, <span>na hora marcada.</span></h1>
+  <p>Escolhe o serviço, o barbeiro e o horário livre — em menos de um minuto, sem ficar esperando resposta no WhatsApp.</p>
+  <div class="ctas"><a class="btn" href="#agendar">Agendar horário</a><a class="btn line" href="#servicos">Ver serviços</a></div>
+  <div class="facts"><div><b>5,0 ★</b><small>254 avaliações</small></div><div><b>Seg–Dom</b><small>domingo até 13h</small></div><div><b>Centro</b><small>R. José Luís Nogueira, 553</small></div></div>
+ </div></div>
+</section>
+
+<section class="sec" id="agendar"><div class="wrap">
+ <span class="eye">Agendamento online</span>
+ <h2>Marque seu <em>horário.</em></h2>
+ <div class="book">
+  <form class="panel" id="f" novalidate>
+   <div class="step" data-s="1"><h3><b>1</b>Serviço</h3><div class="svc" id="svc"></div></div>
+   <div class="step" data-s="2"><h3><b>2</b>Barbeiro</h3><div class="pros" id="pros"></div></div>
+   <div class="step" data-s="3"><h3><b>3</b>Dia</h3><div class="days" id="days"></div></div>
+   <div class="step" data-s="4"><h3><b>4</b>Horário</h3><div class="slots" id="slots"><p class="hint">Escolha o serviço e o dia pra ver os horários livres.</p></div></div>
+   <div class="step" data-s="5"><h3><b>5</b>Seus dados</h3><div class="two"><label class="fld">Nome<input name="nome" autocomplete="name" placeholder="Como te chamo?"></label><label class="fld">WhatsApp<input name="tel" inputmode="tel" autocomplete="tel" placeholder="(33) 9 0000-0000"></label></div></div>
+  </form>
+  <aside class="panel sum" id="sum"></aside>
+ </div>
+</div></section>
+
+<section class="sec" id="servicos" style="padding-top:0"><div class="wrap">
+ <span class="eye">Serviços</span>
+ <h2>Tabela de <em>preços.</em></h2>
+ <div class="menu" id="menu"></div>
+ <p class="small">Serviços, tempos e valores de exemplo — no site de verdade entra a tabela da Kadosh.</p>
+ <div class="gal">
+  <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&h=900&q=70" alt="Salão de barbearia" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=500&h=440&q=70" alt="Ferramentas de barbeiro" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=500&h=440&q=70" alt="Corte de cabelo" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=500&h=440&q=70" alt="Acabamento na navalha" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=500&h=440&q=70" alt="Cadeira de barbeiro" loading="lazy">
+ </div>
+</div></section>
+
+<section class="sec own"><div class="wrap own-in">
+ <div class="rv">
+  <span class="eye">Pra barbearia</span>
+  <h2>Agenda cheia, <em>sem bagunça.</em></h2>
+  <ul>
+   <li><span>📅</span><div><b>Agenda de cada barbeiro</b><p>Cada um vê os próprios horários no celular. Nada de marcar dois clientes na mesma hora.</p></div></li>
+   <li><span>🔔</span><div><b>Lembrete automático</b><p>O cliente recebe aviso no WhatsApp antes do horário. Menos gente faltando.</p></div></li>
+   <li><span>💬</span><div><b>WhatsApp mais livre</b><p>O cliente marca sozinho, até de madrugada. Vocês só cortam.</p></div></li>
+   <li><span>💸</span><div><b>Sem comissão</b><p>Mensalidade fixa, com o nome e a cara da Kadosh. Sem aplicativo pra baixar.</p></div></li>
+  </ul>
+ </div>
+ <div class="agenda rv"><div class="ag-h"><span>Agenda do dia · painel</span><small id="agDate"></small></div><ul class="ag-l" id="agL"></ul><p class="ag-n">Exemplo do painel. Marque um horário aí em cima e veja ele aparecer aqui.</p></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+ <span class="eye">Quem cortou, conta</span>
+ <h2>Nota <em>máxima.</em></h2>
+ <div class="score"><b>5,0</b><span>★★★★★ · 254 avaliações no Google</span></div>
+ <div class="revs">
+  <blockquote class="rv"><p>“Excelente barbearia! Ambiente organizado, atendimento excelente. Corto cabelo e faço minha barba com o brabo DJ Gomes, o barbeiro das estrelas.”</p><cite>Wendely Barbosa · Google</cite></blockquote>
+  <blockquote class="rv"><p>“Excelente barbearia! Atendimento top e ambiente muito bom. Gb Barber manda muito bem no corte, profissional e caprichoso.”</p><cite>Carlos Henrique Sales dos Santos · Google</cite></blockquote>
+  <blockquote class="rv"><p>“Ótimo atendimento. Ambiente muito agradável. Meu marido e meu filho ficaram muito satisfeitos.”</p><cite>Maisa Rocha · Google</cite></blockquote>
+ </div>
+</div></section>
+
+<section class="sec" id="visite" style="padding-top:0"><div class="wrap vis">
+ <div class="rv">
+  <span class="eye">Visite</span>
+  <h2>No <em>Centro.</em></h2>
+  <p style="margin-top:12px;color:#cfcac1">R. José Luís Nogueira, 553 · Centro · Governador Valadares – MG<br>(33) 99878-0639</p>
+  <ul class="hrs" id="hrs"></ul>
+  <div class="ctas"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=-18.8590452,-41.9522509" target="_blank" rel="noopener">Como chegar</a><a class="btn line" href="https://wa.me/5533998780639" target="_blank" rel="noopener">WhatsApp</a></div>
+ </div>
+ <div class="map rv"><iframe title="Mapa da Barbearia Kadosh" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-18.8590452,-41.9522509&z=17&output=embed"></iframe></div>
+</div></section>
+</main>
+<footer><div class="wrap foot"><span><b style="font-family:var(--fd);letter-spacing:.14em;color:var(--txt)">KADOSH</b> · Barbearia</span><span>R. José Luís Nogueira, 553 · Centro · Gov. Valadares – MG</span><span>Site de demonstração · fotos ilustrativas</span></div></footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const brl=v=>'R$ '+v.toFixed(2).replace('.',',');
+const pad=n=>String(n).padStart(2,'0'),hm=m=>pad(Math.floor(m/60))+':'+pad(m%60);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});$$('.rv').forEach(el=>io.observe(el));
+
+/* horário: seg–sex 8–19, sáb 8–17, dom 8–13 */
+const H={0:[480,780],1:[480,1140],2:[480,1140],3:[480,1140],4:[480,1140],5:[480,1140],6:[480,1020]};
+const DN=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],DS=['dom','seg','ter','qua','qui','sex','sáb'];
+function sp(){const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).map(x=>[x.type,x.value]));return{y:+p.year,mo:+p.month,d:+p.day,wd:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday),m:(+p.hour)*60+(+p.minute)}}
+const now=sp();
+function status(){const n=sp(),h=H[n.wd],el=$('#st'),b=el.querySelector('b');if(n.m>=h[0]&&n.m<h[1]){el.classList.add('open');b.textContent='Aberto até '+hm(h[1]).replace(':00','h')}else{el.classList.remove('open');b.textContent=n.m<h[0]?'Abre hoje às 8h':'Abre amanhã às 8h'}}
+status();setInterval(status,60000);
+$('#hrs').innerHTML=[1,2,3,4,5,6,0].map(i=>`<li class="${i===now.wd?'today':''}"><span>${DN[i]}</span><span>${hm(H[i][0])} – ${hm(H[i][1])}</span></li>`).join('');
+
+/* serviços (exemplo) e barbeiros citados nas avaliações */
+const SV=[['corte','Corte',35,40,'tesoura ou máquina, com lavagem'],['barba','Barba',25,30,'toalha quente e navalha'],['combo','Corte + Barba',55,70,'o combo completo'],['infantil','Corte infantil',30,40,'até 12 anos'],['pezinho','Pezinho',10,10,'acabamento entre cortes'],['sobrancelha','Sobrancelha',10,10,'na navalha'],['luzes','Luzes / platinado',90,90,'consulte antes']];
+const PR=[['any','Sem preferência','★'],['dj','DJ Gomes','DJ'],['gb','Gb Barber','GB']];
+$('#menu').innerHTML=SV.map(s=>`<div class="mi"><div><b>${s[1]}</b><small>${s[4]} · ${s[3]} min</small></div><i></i><em>${brl(s[2])}</em></div>`).join('');
+$('#svc').innerHTML=SV.map(s=>`<label class="opt"><input type="checkbox" name="svc" value="${s[0]}"><span><span><b>${s[1]}</b><small>${s[3]} min</small></span><em>${brl(s[2])}</em></span></label>`).join('');
+$('#pros').innerHTML=PR.map((p,i)=>`<label class="opt"><input type="radio" name="pro" value="${p[0]}"${i?'':' checked'}><span><i class="av" style="font-style:normal">${p[2]}</i><b style="font-size:.9rem">${p[1]}</b></span></label>`).join('');
+/* próximos 14 dias */
+const DAYS=[];for(let i=0;i<14;i++){const dt=new Date(Date.UTC(now.y,now.mo-1,now.d+i,12));DAYS.push({i,wd:dt.getUTCDay(),d:dt.getUTCDate(),mo:dt.getUTCMonth()+1,y:dt.getUTCFullYear()})}
+$('#days').innerHTML=DAYS.map(d=>`<label class="opt"><input type="radio" name="day" value="${d.i}"><span><small>${d.i===0?'hoje':d.i===1?'amanhã':DS[d.wd]}</small><b>${pad(d.d)}</b><small>${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][d.mo-1]}</small></span></label>`).join('');
+
+/* reservas (demo, guardadas só neste navegador) */
+let mine=[];try{mine=JSON.parse(localStorage.getItem('kadosh_bk')||'[]');if(!Array.isArray(mine))mine=[]}catch(e){mine=[]}
+const save=()=>{try{localStorage.setItem('kadosh_bk',JSON.stringify(mine))}catch(e){}};
+const key=d=>d.y+'-'+pad(d.mo)+'-'+pad(d.d);
+/* horários "já ocupados" de exemplo, sempre iguais pro mesmo dia */
+function busy(d,pro){const s=key(d)+pro;let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;const set=new Set(),[a,b]=H[d.wd];for(let m=a;m<b;m+=30){h=(h*1103515245+12345)>>>0;if(h%100<22)set.add(m)}return set}
+function taken(d,pro){const s=busy(d,pro);mine.filter(x=>x.k===key(d)&&x.pro===pro).forEach(x=>{for(let m=x.m;m<x.m+x.dur;m+=30)s.add(m)});return s}
+function freeFor(d,pro,m,need){const tk=taken(d,pro);for(let x=m;x<m+need;x+=30)if(tk.has(x))return false;return true}
+function whoFree(d,pro,m,need){const list=pro==='any'?['dj','gb']:[pro];return list.find(p=>freeFor(d,p,m,need))||''}
+
+const f=$('#f');const val=n=>{const e=f.querySelector(`[name="${n}"]:checked`);return e?e.value:''};
+function state(){const svcs=$$('#svc input:checked').map(i=>SV.find(s=>s[0]===i.value));const dur=svcs.reduce((a,s)=>a+s[3],0),tot=svcs.reduce((a,s)=>a+s[2],0);const dv=val('day'),d=dv===''?null:DAYS[+dv];return{svcs,dur,tot,pro:val('pro'),d,slot:val('slot'),nome:f.nome.value.trim(),tel:f.tel.value.replace(/\D/g,'')}}
+function slots(){const s=state(),box=$('#slots');if(!s.svcs.length||!s.d){box.innerHTML='<p class="hint">Escolha o serviço e o dia pra ver os horários livres.</p>';return}
+ const [a,b]=H[s.d.wd],need=Math.ceil(s.dur/30)*30,list=[];
+ for(let m=a;m+need<=b;m+=30){let free=!!whoFree(s.d,s.pro,m,need);if(s.d.i===0&&m<=now.m+20)free=false;list.push([m,free])}
+ const prev=s.slot;
+ box.innerHTML=list.some(x=>x[1])?list.map(([m,fr])=>`<label class="opt"><input type="radio" name="slot" value="${m}"${fr?'':' disabled'}${fr&&String(m)===prev?' checked':''}><span>${hm(m)}</span></label>`).join(''):'<p class="hint">Sem horário livre nesse dia pra esse serviço. Tenta outro dia ou outro barbeiro.</p>'}
+const SKEL=`<h3>Seu horário</h3><ul id="sumL"></ul><div class="tot"><span>Total</span><b id="sumT"></b></div><button class="btn" type="button" id="go">Confirmar agendamento</button><p class="err" id="err" role="alert"></p><p class="small">Paga lá na hora. Precisa desmarcar? É só responder o lembrete.</p>`;
+function skel(){$('#sum').innerHTML=SKEL;$('#go').onclick=confirm}
+function sum(){const s=state();if(!$('#sumL'))skel();
+ const row=(k,v)=>`<li><span>${k}</span><span>${v?esc(v):'—'}</span></li>`;
+ const dtxt=s.d?(s.d.i===0?'Hoje':s.d.i===1?'Amanhã':DN[s.d.wd])+', '+pad(s.d.d)+'/'+pad(s.d.mo):'';
+ $('#sumL').innerHTML=row('Serviço',s.svcs.map(x=>x[1]).join(' + '))+row('Barbeiro',(PR.find(p=>p[0]===s.pro)||['',''])[1])+row('Dia',dtxt)+row('Horário',s.slot?hm(+s.slot)+' · '+s.dur+' min':'');
+ $('#sumT').textContent=brl(s.tot);$('#err').textContent='';
+ $$('.step').forEach(st=>{const n=+st.dataset.s;st.classList.toggle('done',n===1?s.svcs.length>0:n===2?!!s.pro:n===3?!!s.d:n===4?!!s.slot:!!(s.nome&&s.tel.length>=10))})}
+function confirm(){const s=state(),err=$('#err');
+ const need=!s.svcs.length?'o serviço':!s.d?'o dia':!s.slot?'o horário':!s.nome?'seu nome':s.tel.length<10?'um WhatsApp com DDD':'';
+ if(need){err.textContent='Falta escolher '+need+'.';const t=!s.svcs.length?'#svc':!s.d?'#days':!s.slot?'#slots':'[name=nome]';const el=$(t);if(el)el.scrollIntoView({block:'center',behavior:'smooth'});return}
+ const m=+s.slot,code=String(Math.floor(1000+Math.random()*9000)),pro=whoFree(s.d,s.pro,+s.slot,Math.ceil(s.dur/30)*30)||(s.pro==='any'?'dj':s.pro),proN=PR.find(p=>p[0]===pro)[1];
+ const bk={k:key(s.d),m,dur:Math.ceil(s.dur/30)*30,pro,nome:s.nome,svc:s.svcs.map(x=>x[1]).join(' + '),code};mine.push(bk);save();
+ const dtxt=(s.d.i===0?'hoje':s.d.i===1?'amanhã':DN[s.d.wd].toLowerCase())+', '+pad(s.d.d)+'/'+pad(s.d.mo);
+ const lembrete=`Oi, ${s.nome.split(' ')[0]}! Passando pra lembrar do seu horário na Kadosh ${s.d.i===0?'hoje':dtxt} às ${hm(m)} com ${proN} (${bk.svc}). Se precisar desmarcar, é só responder aqui. 💈`;
+ const st=new Date(Date.UTC(s.d.y,s.d.mo-1,s.d.d,Math.floor(m/60)+3,m%60)),en=new Date(st.getTime()+s.dur*60000),f8=x=>x.toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+ const cal=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Barbearia Kadosh · '+bk.svc)}&dates=${f8(st)}/${f8(en)}&location=${encodeURIComponent('R. José Luís Nogueira, 553 - Centro, Gov. Valadares')}`;
+ $('#sum').innerHTML=`<div class="ok"><div class="ic">✓</div><h3>Horário marcado!</h3><div class="code">#${code}</div><p><b>${esc(bk.svc)}</b><br>${esc(dtxt)} às <b>${hm(m)}</b> com <b>${esc(proN)}</b></p><div class="wa"><small>Lembrete que o cliente recebe no WhatsApp (no real):</small><div>${esc(lembrete)}</div></div><div class="acts"><a class="btn line" href="${cal}" target="_blank" rel="noopener">Pôr na minha agenda</a><button class="btn" type="button" id="again">Marcar outro horário</button></div><p class="small">Demonstração: nenhum horário foi marcado na barbearia.</p></div>`;
+ $('#again').onclick=()=>{f.reset();$$('#pros input')[0].checked=true;skel();slots();sum();$('#agendar').scrollIntoView({behavior:'smooth'})};
+ agenda(bk);slots();$('#sum').scrollIntoView({block:'nearest',behavior:'smooth'})}
+f.addEventListener('change',e=>{if(['svc','pro','day'].includes(e.target.name))slots();sum()});
+f.addEventListener('input',e=>{if(e.target.name==='nome'||e.target.name==='tel')sum()});
+slots();sum();
+
+/* painel (exemplo) */
+const NAMES=['Lucas','Rafael','Pedro H.','João Vítor','Mateus','Gustavo','Felipe','Arthur','Davi','Bruno','Thiago','Samuel'];
+function agenda(hl){const d=(hl&&DAYS.find(x=>key(x)===hl.k))||DAYS[0],list=[];const [a,b]=H[d.wd];
+ ['dj','gb'].forEach(pro=>{let i=pro==='dj'?0:5;busy(d,pro).forEach(m=>{list.push({m,pro,nome:NAMES[(i++)%NAMES.length],svc:['Corte','Corte + Barba','Barba','Corte infantil'][(m/30+i)%4]})})});
+ mine.filter(x=>x.k===key(d)).forEach(x=>list.push({...x,mine:true}));
+ list.sort((x,y)=>x.m-y.m);
+ $('#agDate').textContent=(d.i===0?'Hoje':d.i===1?'Amanhã':DN[d.wd])+', '+pad(d.d)+'/'+pad(d.mo);
+ $('#agL').innerHTML=list.length?list.map(x=>`<li class="${x.mine?'new':''}"><time>${hm(x.m)}</time><div><b>${esc(x.nome)}</b><small>${esc(x.svc)} · ${x.pro==='dj'?'DJ Gomes':'Gb Barber'}</small></div><span class="tg">${x.mine?'novo':d.i===0&&x.m+30<=now.m?'feito':'agendado'}</span></li>`).join(''):'<li><span></span><div>Nenhum horário hoje.</div></li>';
+ if(hl&&hl.k===key(d)){const el=$('#agL .new'),box=$('#agL');if(el)box.scrollTop=el.offsetTop-box.clientHeight/2}}
+agenda();
+})();
+</script>
+</body>
+</html>
